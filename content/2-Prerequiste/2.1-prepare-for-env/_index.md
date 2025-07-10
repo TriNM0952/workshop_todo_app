@@ -11,7 +11,7 @@ In this step, we will prepare the environment to develop and deploy the To-Do Li
 
 After completing this step, the system will be designed with a serverless architecture, including main components such as Lambda, API Gateway, and DynamoDB.
 - System Architecture Diagram
-![Build](/images/2.Build/aws-architecture-drawio.drawio.png)
+![Build](/images/2.Build/diagram.png)
 ---
 
 ## 📦 Preparation Content

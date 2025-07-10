@@ -1,111 +1,111 @@
 [
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/4-interview-cloudformation/4.1-guide-cloudformation/",
+	"uri": "http://localhost:1313/workshop_todo_app/4-interview-cloudformation/4.1-guide-cloudformation/",
 	"title": "CloudFormation",
 	"tags": [],
 	"description": "",
 	"content": " Go to Lambda Go to the AWS Management Console. Search for Lambda on the interface or in the search bar Select Lambda In the Lambda interface, select your Lambda function In the Lambda function interface, select the Test section and choose CloudWatch Logs Live Tail Click Start and view the returned logs You can view in View in column or View in plaintext, the returned logs are as follows: View in column: View in plaintext: "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/3.2-cloudfront/3.2.1-create-distribution/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/3.2-cloudfront/3.2.1-create-distribution/",
 	"title": "Create CloudFront Distribution",
 	"tags": [],
 	"description": "",
 	"content": "Create CloudFront Distribution and configure Distribution Create CloudFront Distribution Go to the AWS Console Search for CloudFront on the interface or in the search bar Select CloudFront In the CloudFront interface, select Create distribution In the Create distribution interface Distribution name: enter todo-web-frontend-ws Then select Next At this step, select Other Scroll down to the Origin section Enter Custom origin: you need to enter the URL to your S3 website hosting and remove the http:// prefix Use the recommended settings Then select Next In the next step, you can choose between Enable security protections (paid) or Do not enable security protections (free). Then select Next Then select Create distribution to create the distribution After creating the distribution, you need to wait 5-20 minutes for Amazon CloudFront to deploy After deployment is complete, you can see the deployment time and the new URL to your interface "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/3.1-interview-s3/3.1.1-create-bucket/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/3.1-interview-s3/3.1.1-create-bucket/",
 	"title": "Create S3 bucket",
 	"tags": [],
 	"description": "",
 	"content": "Create bucket Create an S3 bucket Go to the AWS Management Console. Search for S3 on the interface or in the search bar Select S3 In the S3 interface, select create bucket In the Create bucket interface Bucket name: enter todo-web-frontend-ws Note: Since Bucket name is globally unique, if you use the same name as above, you will see the message: “Bucket with the same name already exists”. Therefore, you need to add some numbers at the end so that your Bucket name complies with the policy. In the Block Public Access settings for this bucket section, turn it off and check the box I acknowledge that the current settings might result in this bucket and the objects within becoming public. Leave the remaining settings as default and select create bucket Complete the creation of the S3 bucket to store the source code. "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/1-introduce/",
+	"uri": "http://localhost:1313/workshop_todo_app/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
 	"content": "🏠 Workshop: Build a Serverless To-Do List Application on AWS This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.\n🔧 In this workshop, you will:\nBuild a static frontend interface with HTML/CSS/JS and deploy it to S3. Write the backend using Python (FastAPI), deploy with AWS Lambda. Deploy API Gateway to expose REST API. Store data with DynamoDB. Automate infrastructure deployment with CloudFormation. Protect the API with API Key and IAM Role. Monitor logs with CloudWatch. 🎓 You will learn: How to build and deploy a serverless application on AWS. Deploy infrastructure as code with CloudFormation. Configure API Gateway, Lambda, DynamoDB, and S3. Build a REST API backend with FastAPI (Python). Secure the backend API with x-api-key and least privilege IAM policy. Analyze logs and monitor performance with CloudWatch. 💼 Workshop outcomes: Complete To-Do List web application including frontend and backend. Deployed on the AWS ecosystem. The system can auto-scale, is well encrypted and protected. Ready for deployment in real environments or CI/CD integration. "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/3.1-interview-s3/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/3.1-interview-s3/",
 	"title": "Introduction to S3",
 	"tags": [],
 	"description": "",
 	"content": "Introduction to Amazon S3 Amazon Simple Storage Service (Amazon S3) is an object storage service that provides scalable storage on demand, ensuring high data availability, security, and performance.\nS3 is built to meet the needs of customers of all sizes and industries, allowing them to store and protect any amount of data.\nS3 can be used for many use cases such as data warehouse, websites, mobile applications, backup and restore, archiving, enterprise applications, IoT devices, and big data analytics. In addition, Amazon S3 provides easy-to-use management features, allowing you to organize data and configure access control measures to meet specific business, organizational, and compliance requirements.\nAmazon S3 is designed for 99.999999999% (11 9’s) durability and stores data for millions of applications for companies around the world.\n"
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/2-prerequiste/2.1-prepare-for-env/",
+	"uri": "http://localhost:1313/workshop_todo_app/2-prerequiste/2.1-prepare-for-env/",
 	"title": "Prepare Server Development Environment",
 	"tags": [],
 	"description": "",
 	"content": "In this step, we will prepare the environment to develop and deploy the To-Do List web application using a serverless architecture on AWS. This includes installing tools, creating the project structure, and writing the initial source code.\n🗂 Architecture Overview After completing this step, the system will be designed with a serverless architecture, including main components such as Lambda, API Gateway, and DynamoDB.\nSystem Architecture Diagram 📦 Preparation Content 1. Install required tools AWS CLI Node.js \u0026amp; npm Serverless Framework Python and necessary libraries 2. Create project structure with Serverless Framework Create serverless.yaml file Configure Serverless Framework Create initial source code files Create serverless.yaml to configure required resources 3. Write code to grant Lambda permission to access the DynamoDB TodosTable for CRUD operations IAM configuration: iam: role: statements: - Effect: Allow Action: - dynamodb:PutItem - dynamodb:GetItem - dynamodb:UpdateItem - dynamodb:DeleteItem - dynamodb:Scan - dynamodb:Query Resource: - arn:aws:dynamodb:ap-southeast-1:your-aws-id:table/TodosTable Replace your-aws-id with your AWS account ID\n4. Write Lambda source code and configure API Define Lambda functions in Python Configure API Gateway to connect with Lambda Configure API protection with API Key: apiGateway: apiKeySourceType: HEADER apiKeys: - name: TodoApiKey-${sls:stage} description: \u0026#34;API Key for Todo App\u0026#34; enabled: true usagePlan: throttle: rateLimit: 100 burstLimit: 50 quota: limit: 1000 period: MONTH 5. Configure DynamoDB Create a DynamoDB table to store application data Create a DynamoDB table TodosTable with primary key id (string type), using PAY_PER_REQUEST billing mode. resources: Resources: TodosTable: Type: AWS::DynamoDB::Table Properties: TableName: TodosTable AttributeDefinitions: - AttributeName: id AttributeType: S KeySchema: - AttributeName: id KeyType: HASH BillingMode: PAY_PER_REQUEST Result: 6. Configure API KEY on AWS Console Go to AWS Management Console. Search for API Gateway from the interface or search bar Access API Gateway In the interface, select the APIs you created from the backend Continue to select API key In the API key interface, select Create API key In the API key creation interface, enter Name and Description for your API key Then select Save Result: 7. Deploy to AWS Use CloudFormation or Serverless CLI to deploy the entire system serverless deploy After you deploy the project, in the command prompt in your backend you will receive the server endpoint and API key. The returned endpoint and API key will look like: functions: api: todo-serverless-dev-api\napi keys: TodoApiKey-dev: IZxMUcA7Vq4YoIsZGB1tp9Tgve86hc1CNlo15fj9 You need to use the endpoint and API key to send requests to the server 🔗 References Introduction to Lambda Introduction to API Gateway Introduction to DynamoDB Introduction to CloudFront Introduction to CloudFormation Introduction to S3 You can also refer to the project on Github (https://github.com/TriNM0952/Workshop.git) After completing this step, you will have a ready serverless backend system with Lambda, API Gateway, and DynamoDB to continue building the frontend and complete the application.\n"
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/",
+	"uri": "http://localhost:1313/workshop_todo_app/",
 	"title": "Workshop: Build a Serverless To-Do List Application on AWS",
 	"tags": [],
 	"description": "",
 	"content": "Build a Serverless To-Do List Application on AWS Overview This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.\nContent Introduction Preparation Connect to EC2 instance Manage session logs Port Forwarding Clean up resources "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/2-prerequiste/2.2-prepare-for-build/",
+	"uri": "http://localhost:1313/workshop_todo_app/2-prerequiste/2.2-prepare-for-build/",
 	"title": "Build and Deploy the User Interface",
 	"tags": [],
 	"description": "",
 	"content": "After completing the serverless backend, the next step is to build and deploy the user interface with React. The UI will connect to the API Gateway using x-api-key to perform CRUD operations with Lambda + DynamoDB.\nPreparation Steps 🖥️ UI Architecture The user interface (frontend) will be a single-page React application (SPA), built statically and hosted on S3, distributed via CloudFront, and connected to the backend through API Gateway.\n🧰 Tools and Resources Needed 1. Development Tools Node.js \u0026gt;= 18 npm or yarn React + React DOM Code Editor (VS Code) 2. Required AWS Resources S3 bucket (for static website hosting) CloudFront Distribution API Gateway endpoint (from backend) API Key to secure the endpoint 📁 Create the UI with React 1. Create the project npx create-react-app todo-frontend cd todo-frontend 2. Project structure todo-frontend/\n├── public/\n├── src/\n│ ├── components/\n│ │ ├── Header.js\n│ │ ├── TaskForm.js\n│ │ ├── TaskList.js\n│ │ └── EditModal.js\n│ ├── service/API.js\n│ ├── assets/style.css\n│ ├── App.js\n│ └── index.js\n3. Connect to API Gateway Use the endpoint and API key you obtained from the server const API_URL = \u0026#34;https://your-api-id.execute-api.ap-southeast-1.amazonaws.com/dev\u0026#34;; const API_KEY = \u0026#34;your-api-key\u0026#34;; const headers = { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#39;x-api-key\u0026#39;: API_KEY }; export const fetchTasks = async () =\u0026gt; { const res = await fetch(`${API_URL}/todos`, { headers }); return res.json(); }; // POST, PUT, DELETE are similar 4. Build the UI After building the UI npm run build After running the command, your UI source will be packaged into the build folder, which you will use for the next step 🔗 References You can also refer to the project on Git (https://github.com/TriNM0952/Workshop.git) "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/3.2-cloudfront/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/3.2-cloudfront/",
 	"title": "Distribute UI via CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "Introduction to Amazon CloudFront Amazon CloudFront is a Content Delivery Network (CDN) provided by AWS, optimized for performance and security.\nDistributes content through hundreds of Edge Locations worldwide. Reduces latency and increases delivery speed by serving content from locations close to end users. Content Support\nStatic content: HTML, CSS, JS, images, video. Dynamic content: uses conditional caching and supports: HTTP/2 TLS 1.3 WebSocket Integration with AWS services\nAmazon S3 Elastic Load Balancing Amazon EC2 AWS Lambda@Edge Process logic at the edge such as: User authentication URL redirection Customizing responses based on conditions Security features\nGeo-restriction and Signed URLs/Cookies to control access. Integration with AWS WAF to filter malicious traffic. DDoS protection with AWS Shield Standard. Scalability and customization\nSupports custom headers. Automatically scales with traffic. Suitable for applications with high requirements for: Performance Availability Security "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/2-prerequiste/",
+	"uri": "http://localhost:1313/workshop_todo_app/2-prerequiste/",
 	"title": "Preparation Steps",
 	"tags": [],
 	"description": "",
 	"content": "1. System Requirements Python 3.10 or 3.11 Node.js \u0026gt;= 16 AWS CLI AWS Account with permissions to create Lambda, API Gateway, DynamoDB, S3 services Diagram design tool (suggested: draw.io, Lucidchart) IDE: Visual Studio Code (or your preferred editor) 2. Install Required Tools Install AWS CLI macOS brew install awscli sudo apt install awscli Windows Download from AWS CLI Configure AWS CLI\naws configure Enter: Access key, secret key Region: ap-southeast-1 Format: json Install Node.js \u0026amp; npm macOS\nbrew install node Ubuntu\nsudo apt install nodejs npm Install Serverless Framework\nnpm install -g serverless Create Python virtual environment\npython -m venv .venv source .venv/bin/activate # macOS/Linux .venv\\Scripts\\activate # Windows 3. Create Initial Project Structure mkdir todo-serverless cd todo-serverless sls create --template aws-python --path . 4. Install Python Libraries fastapi\nmangum\nboto3\npydantic\npytz\nInstall:\npip install -r requirements.txt "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/3.1-interview-s3/3.1.2-load-data/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/3.1-interview-s3/3.1.2-load-data/",
 	"title": "Upload Data and Configuration",
 	"tags": [],
 	"description": "",
 	"content": "Upload Data Currently, we don\u0026rsquo;t have any object We need to upload the frontend source to S3 In VS Code, open the frontend source, open the terminal and run the command: aws s3 sync build/ s3://todo-web-frontend-ws --delete Note: Please adjust the path according to the location of your frontend folder After running, your source will be uploaded to S3 Configuration Select permission in the bucket, scroll down to the bucket policy section and select edit. Then configure S3 as follows: {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Sid\u0026#34;: \u0026#34;AllowPublicRead\u0026#34;,\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Action\u0026#34;: [\u0026#34;s3:GetObject\u0026#34;],\r\u0026#34;Resource\u0026#34;: [\u0026#34;arn:aws:s3:::todo-web-frontend-ws/*\u0026#34;]\r}\r]\r} Then select save changes Next, select Properties, scroll down to Static website hosting and select edit Select enable For Index document, enter index.html For Error document, enter index.html Then click Save change In the Static website hosting section, you will see the Bucket website endpoint, which is the URL to your static frontend You can now access your static frontend on S3 "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/3-s3/",
+	"uri": "http://localhost:1313/workshop_todo_app/3-s3/",
 	"title": "Deploy static UI to S3 and distribute via CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "In this step, we will deploy the static UI to S3 and distribute the UI via CloudFront.\nContent 3.1. Deploy static UI to S3 3.2. Distribute UI via CloudFront\n"
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/4-interview-cloudformation/",
+	"uri": "http://localhost:1313/workshop_todo_app/4-interview-cloudformation/",
 	"title": "Introduction to CloudFormation",
 	"tags": [],
 	"description": "",
 	"content": "Amazon CloudWatch is AWS\u0026rsquo;s centralized monitoring service, providing the ability to collect logs, metrics, and create alarms for your entire infrastructure.\nIn your system, CloudWatch can be used to:\nRecord logs from Lambda functions via console.log() Monitor the number of requests, 4xx/5xx errors from API Gateway Monitor traffic to CloudFront and S3 You can:\nAccess CloudWatch Logs to check real-time logs from Lambda Create Alarms to send notifications via email (SNS) if there is an abnormal increase in errors Combine CloudWatch Dashboard to visualize the entire system "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/5-cleanup/",
+	"uri": "http://localhost:1313/workshop_todo_app/5-cleanup/",
 	"title": "Clean up resources",
 	"tags": [],
 	"description": "",
 	"content": "Clean up AWS resources with CloudFormation, CLI, and Console 1. Delete CloudFormation Stack If you created resources using CloudFormation, delete the stack to automatically clean up:\nUsing AWS CLI: aws cloudformation delete-stack --stack-name \u0026lt;your-stack-name\u0026gt; Example:\naws cloudformation delete-stack --stack-name todo-app-stack Using AWS Console: Go to the CloudFormation service. Select your stack (e.g., todo-app-stack). Click Delete. ➡️ This will automatically delete: S3, Lambda, API Gateway, DynamoDB, IAM roles (if defined in the template).\n2. Delete S3 Bucket (if not deleted by stack) If the bucket was created manually or the stack cannot delete the bucket because it still contains files:\naws s3 rm s3://\u0026lt;bucket-name\u0026gt; --recursive aws s3api delete-bucket --bucket \u0026lt;bucket-name\u0026gt; 3. Delete CloudFront Distribution (if created outside the stack) If you created the CloudFront Distribution manually:\nGo to AWS Console → CloudFront → Select Distribution → Disable. After disabling, select Delete. 4. Delete DynamoDB Table (if created outside the stack) aws dynamodb delete-table --table-name \u0026lt;table-name\u0026gt; Example:\naws dynamodb delete-table --table-name Tasks 5. Delete Lambda Functions (if created outside the stack) aws lambda delete-function --function-name \u0026lt;function-name\u0026gt; Example:\naws lambda delete-function --function-name yourFunctionName 6. Delete API Gateway (if created outside the stack) aws apigateway delete-rest-api --rest-api-id \u0026lt;api-id\u0026gt; 7. Delete IAM Roles/Policies (if created manually) Go to AWS Console → IAM → Delete any unused roles/policies. 🧼 Double-check Go to the Billing Dashboard to check if there are any services still incurring charges. Check other Regions if you have created resources in multiple regions. ✅ Summary Cleaning up resources helps:\nAvoid unwanted charges. Keep your AWS account clean and secure. Follow the project lifecycle process. "
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/categories/",
+	"uri": "http://localhost:1313/workshop_todo_app/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://TriNM0952.github.io/workshop_todo_app/tags/",
+	"uri": "http://localhost:1313/workshop_todo_app/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

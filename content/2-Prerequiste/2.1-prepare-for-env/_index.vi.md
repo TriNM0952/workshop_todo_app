@@ -11,7 +11,7 @@ Trong bước này, chúng ta sẽ chuẩn bị môi trường để phát tri�
 
 Sau khi hoàn tất bước này, hệ thống sẽ được thiết kế theo kiến trúc serverless, bao gồm các thành phần chính như Lambda, API Gateway, và DynamoDB.
 -  Sơ đồ kiến trúc hệ thống
-![Build](/images/2.Build/aws-architecture-drawio.drawio.png)
+![Build](/images/2.Build/diagram.png)
 
 
 ---
