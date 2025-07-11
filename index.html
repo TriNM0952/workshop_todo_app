@@ -12,21 +12,21 @@
     <title>Workshop: Build a Serverless To-Do List Application on AWS :: AWS System Manager</title>
 
     
-    <link href="./css/nucleus.css?1752255849" rel="stylesheet">
-    <link href="./css/fontawesome-all.min.css?1752255849" rel="stylesheet">
-    <link href="./css/hybrid.css?1752255849" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1752255849" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1752255849" rel="stylesheet">
-    <link href="./css/auto-complete.css?1752255849" rel="stylesheet">
-    <link href="./css/atom-one-dark-reasonable.css?1752255849" rel="stylesheet">
-    <link href="./css/theme.css?1752255849" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1752255849" rel="stylesheet">
+    <link href="./css/nucleus.css?1752256868" rel="stylesheet">
+    <link href="./css/fontawesome-all.min.css?1752256868" rel="stylesheet">
+    <link href="./css/hybrid.css?1752256868" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1752256868" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1752256868" rel="stylesheet">
+    <link href="./css/auto-complete.css?1752256868" rel="stylesheet">
+    <link href="./css/atom-one-dark-reasonable.css?1752256868" rel="stylesheet">
+    <link href="./css/theme.css?1752256868" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1752256868" rel="stylesheet">
     
-    <link href="./css/theme-workshop.css?1752255849" rel="stylesheet">
+    <link href="./css/theme-workshop.css?1752256868" rel="stylesheet">
     
     
 
-    <script src="./js/jquery-3.3.1.min.js?1752255849"></script>
+    <script src="./js/jquery-3.3.1.min.js?1752256868"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,15 +57,15 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="./js/lunr.min.js?1752255849"></script>
-<script type="text/javascript" src="./js/auto-complete.js?1752255849"></script>
+<script type="text/javascript" src="./js/lunr.min.js?1752256868"></script>
+<script type="text/javascript" src="./js/auto-complete.js?1752256868"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/TriNM0952.github.io\/workshop_todo_app\/";
     
 </script>
 
-<script type="text/javascript" src="./js/search.js?1752255849"></script>
+<script type="text/javascript" src="./js/search.js?1752256868"></script>
 
     
   </div>
@@ -620,12 +620,11 @@
 <p>This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.</p>
 <h3 id="content">Content</h3>
 <ol>
-<li><a href="./1-introduce/">Introduction </a></li>
-<li><a href="./2-prerequiste/">Preparation</a></li>
-<li><a href="3-accessibilitytoinstances/">Connect to EC2 instance</a></li>
-<li><a href="4-s3log/">Manage session logs</a></li>
-<li><a href="5-Portfwd/">Port Forwarding</a></li>
-<li><a href="6-cleanup/">Clean up resources</a></li>
+<li><a href="./1-introduce/">Introduction</a></li>
+<li><a href="./2-prerequiste/">2-Prerequiste</a></li>
+<li><a href="./3-s3/">Introduction to S3</a></li>
+<li><a href="./4-interview-cloudformation/">Overview of CloudFront</a></li>
+<li><a href="./5-cleanup/">Clean Up Resources</a></li>
 </ol>
 	
   
@@ -896,19 +895,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1752255849"></script>
-    <script src="./js/perfect-scrollbar.min.js?1752255849"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1752255849"></script>
-    <script src="./js/jquery.sticky.js?1752255849"></script>
-    <script src="./js/featherlight.min.js?1752255849"></script>
-    <script src="./js/highlight.pack.js?1752255849"></script>
+    <script src="./js/clipboard.min.js?1752256868"></script>
+    <script src="./js/perfect-scrollbar.min.js?1752256868"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1752256868"></script>
+    <script src="./js/jquery.sticky.js?1752256868"></script>
+    <script src="./js/featherlight.min.js?1752256868"></script>
+    <script src="./js/highlight.pack.js?1752256868"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom-3.6.0.js?1752255849"></script>
-    <script src="./js/learn.js?1752255849"></script>
-    <script src="./js/hugo-learn.js?1752255849"></script>
+    <script src="./js/modernizr.custom-3.6.0.js?1752256868"></script>
+    <script src="./js/learn.js?1752256868"></script>
+    <script src="./js/hugo-learn.js?1752256868"></script>
 
-    <link href="./mermaid/mermaid.css?1752255849" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1752255849"></script>
+    <link href="./mermaid/mermaid.css?1752256868" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1752256868"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

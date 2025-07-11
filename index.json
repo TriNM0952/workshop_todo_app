@@ -46,7 +46,7 @@
 	"title": "Workshop: Build a Serverless To-Do List Application on AWS",
 	"tags": [],
 	"description": "",
-	"content": "Build a Serverless To-Do List Application on AWS Overview This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.\nContent Introduction Preparation Connect to EC2 instance Manage session logs Port Forwarding Clean up resources "
+	"content": "Build a Serverless To-Do List Application on AWS Overview This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.\nContent Introduction 2-Prerequiste Introduction to S3 Overview of CloudFront Clean Up Resources "
 },
 {
 	"uri": "https://TriNM0952.github.io/workshop_todo_app/2-prerequiste/2.2-prepare-for-build/",
