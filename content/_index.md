@@ -10,9 +10,8 @@ chapter : false
 This workshop guides you to build a complete To-Do List web application, deployed in a serverless manner using AWS services such as Lambda, API Gateway, DynamoDB, S3, CloudFront, and CloudFormation.
 
 ### Content
- 1. [Introduction ](1-introduce/)
- 2. [Preparation](2-prerequiste/)
- 3. [Connect to EC2 instance](3-accessibilitytoinstances/)
- 4. [Manage session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Clean up resources](6-cleanup/)
+1. [Introduction](1-introduce/)
+2. [2-Prerequiste](2-Prerequiste/)
+3. [Introduction to S3](3-S3/)
+4. [Overview of CloudFront](4-interview-CloudFormation/)
+5. [Clean Up Resources](5-cleanup/)

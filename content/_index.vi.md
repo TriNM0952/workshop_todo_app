@@ -13,6 +13,6 @@ Workshop này hướng dẫn bạn xây dựng một ứng dụng web To-Do List
 
  1. [Giới thiệu](1-introduce/)
  2. [Các bước chuẩn bị](2-Prerequiste/)
- 3. [Tạo kết nối đến máy chủ EC2](3-S3/)
- 4. [Quản lý session logs](4-interview-CloudFormation/)
+ 3. [Giới thiệu về S3](3-S3/)
+ 4. [Tổng quan về CloudFront](4-interview-CloudFormation/)
  5. [Dọn dẹp tài nguyên](5-cleanup/)

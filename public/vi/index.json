@@ -46,7 +46,7 @@
 	"title": "Workshop: Xây dựng Ứng dụng To-Do List Serverless trên AWS",
 	"tags": [],
 	"description": "",
-	"content": "Xây dựng Ứng dụng To-Do List Serverless trên AWS Tổng quan Workshop này hướng dẫn bạn xây dựng một ứng dụng web To-Do List hoàn chỉnh, triển khai theo kiểu serverless sử dụng các dịch vụ của AWS như Lambda, API Gateway, DynamoDB, S3, CloudFront và CloudFormation.\nNội dung Giới thiệu Các bước chuẩn bị Tạo kết nối đến máy chủ EC2 Quản lý session logs Dọn dẹp tài nguyên "
+	"content": "Xây dựng Ứng dụng To-Do List Serverless trên AWS Tổng quan Workshop này hướng dẫn bạn xây dựng một ứng dụng web To-Do List hoàn chỉnh, triển khai theo kiểu serverless sử dụng các dịch vụ của AWS như Lambda, API Gateway, DynamoDB, S3, CloudFront và CloudFormation.\nNội dung Giới thiệu Các bước chuẩn bị Giới thiệu về S3 Tổng quan về CloudFront Dọn dẹp tài nguyên "
 },
 {
 	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/2-prerequiste/",
