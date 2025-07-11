@@ -1,111 +1,111 @@
 [
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/2-prerequiste/2.1-prepare-for-env/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/2-prerequiste/2.1-prepare-for-env/",
 	"title": "Chuẩn bị môi trường phát triển Server",
 	"tags": [],
 	"description": "",
 	"content": "Trong bước này, chúng ta sẽ chuẩn bị môi trường để phát triển và triển khai ứng dụng web To-Do List theo kiến trúc serverless trên AWS. Bao gồm việc cài đặt công cụ, tạo cấu trúc dự án, và viết mã nguồn ban đầu.\n🗂 Tổng quan kiến trúc Sau khi hoàn tất bước này, hệ thống sẽ được thiết kế theo kiến trúc serverless, bao gồm các thành phần chính như Lambda, API Gateway, và DynamoDB.\nSơ đồ kiến trúc hệ thống 📦 Nội dung chuẩn bị 1. Cài đặt công cụ cần thiết AWS CLI Node.js \u0026amp; npm Serverless Framework Python và các thư viện cần thiết 2. Tạo cấu trúc dự án với Serverless Framework Tạo file serverless.yalm Cấu hình Serverless Framework Tạo các file mã nguồn ban đầu Tạo file serverless.yalm để cấu hình các tài nguyên cần thiết 3. Viết mã nguồn cấp quyền cho Lambda truy cập bảng DynamoDB TodosTable để thực hiện các thao tác CRUD Cấu hình IAM: iam: role: statements: - Effect: Allow Action: - dynamodb:PutItem - dynamodb:GetItem - dynamodb:UpdateItem - dynamodb:DeleteItem - dynamodb:Scan - dynamodb:Query Resource: - arn:aws:dynamodb:ap-southeast-1:your-aws-id:table/TodosTable Thay your-aws-id bằng Id tài khoản AWS của bạn\n4. Viết mã nguồn Lambda và cấu hình API Định nghĩa cho các Lambda function bằng Python Cấu hình API Gateway để kết nối với Lambda Cấu hình bảo vệ API bằng API Key: apiGateway: apiKeySourceType: HEADER apiKeys: - name: TodoApiKey-${sls:stage} description: \u0026#34;API Key cho Todo App\u0026#34; enabled: true usagePlan: throttle: rateLimit: 100 burstLimit: 50 quota: limit: 1000 period: MONTH 5. Cấu hình DynamoDB Tạo bảng DynamoDB để lưu trữ dữ liệu ứng dụng Tạo DynamoDB bảng TodosTable với khóa chính là id (kiểu chuỗi), dùng chế độ thanh toán theo lượt truy vấn (PAY_PER_REQUEST). resources: Resources: TodosTable: Type: AWS::DynamoDB::Table Properties: TableName: TodosTable AttributeDefinitions: - AttributeName: id AttributeType: S KeySchema: - AttributeName: id KeyType: HASH BillingMode: PAY_PER_REQUEST Kết quả: 6. Cấu hình API KEY trên AWS Console Truy cập vào AWS Management Console. Tìm API Gateway từ giao diện hoặc thanh tìm kiếm Truy cập API Gateway -Tại giao diện, chọn vào APIs mà bạn đã tạo từ back end Tiếp tục chọn API key Tại giao diện API key chọn Create API key Tại giao diện tạo API key, điền Name và Decription cho API key của bạn Sau đó chọn Save Kết quả: 7. Triển khai lên AWS Sử dụng CloudFormation hoặc Serverless CLI để triển khai toàn bộ hệ thống serverless deploy Sau khi bạn deploy dự án, trong command prompt trong back end của bạn sẽ nhận được đường dẫn đến server và api key. Đường dần và API key trả về có dạng:\nfunctions: api: todo-serverless-dev-api\napi keys: TodoApiKey-dev: IZxMUcA7Vq4YoIsZGB1tp9Tgve86hc1CNlo15fj9 Bạn cần sử dụng đường dẫn và API key để gửi các yêu cầu về server 🔗 Tài liệu tham khảo Giới thiệu về Lambda Giới thiệu về API Gateway Giới thiệu về DynamoDB Giới thiệu về CloudFront Giới thiệu về CloudFormation Giới thiệu về S3 Hoặc bạn có thể tham khảo dự án thêm tại Github (https://github.com/TriNM0952/Workshop.git) Sau khi hoàn tất bước này, bạn đã có sẵn hệ thống backend serverless với Lambda, API Gateway và DynamoDB để tiếp tục xây dựng giao diện và hoàn thiện ứng dụng.\n"
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/4-interview-cloudformation/4.1-guide-cloudformation/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/4-interview-cloudformation/4.1-guide-cloudformation/",
 	"title": "CloudFormation",
 	"tags": [],
 	"description": "",
 	"content": " Truy cập vào Lambda Truy cập AWS Management Console. Tìm Lambda trên giao diện hoặc thanh tìm kiếm Chọn Lambda Trong giao diện Lambda, chọn vào function Lambda của bạn Trong giao diện Lambda function chọn phần Test và chọn phần CloudWatch Logs Live Tail Chọn Start và xem các log trả về Bạn có thể xem View in column hoặc View in plaintext, các log trả về có dạng -_View in column: -View in plaintext: "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/1-introduce/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
 	"content": "🏠 Workshop: Xây dựng Ứng dụng To-Do List Serverless trên AWS Workshop này hướng dẫn bạn xây dựng một ứng dụng web To-Do List hoàn chỉnh, triển khai theo kiểu serverless sử dụng các dịch vụ của AWS như Lambda, API Gateway, DynamoDB, S3, CloudFront và CloudFormation.\n🔧 Trong workshop, bạn sẽ:\nXây dựng giao diện frontend tĩnh bằng HTML/CSS/JS và deploy lên S3. Viết backend bằng Python (FastAPI), deploy bằng AWS Lambda. Triển khai API Gateway để expose REST API. Lưu trữ dữ liệu bằng DynamoDB. Tự động hóa triển khai hạ tầng bằng CloudFormation. Bảo vệ API bằng API Key và IAM Role. Giở theo dõi logs bằng CloudWatch. 🎓 Bạn sẽ học được: Cách xây dựng và deploy ứng dụng serverless trên AWS. Triển khai hạ tầng dưới dạng mã (Infrastructure as Code) với CloudFormation. Cấu hình API Gateway, Lambda, DynamoDB và S3. Xây dựng REST API backend bằng FastAPI (Python). Bảo mật backend API bằng x-api-key và least privilege IAM policy. Phân tích log và theo dõi hiệu năng bằng CloudWatch. 💼 Kết quả sau workshop: Hoàn chỉnh ứng dụng web To-Do List gồm frontend và backend. Đã deploy trên hệ sinh thái AWS. Hệ thống có thể scale tự động, mã hoá và bảo vệ tốt. Sẵn sàng để triển khai trong môi trường thực tế hoặc tích hợp CI/CD. "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/3.1-interview-s3/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/3.1-interview-s3/",
 	"title": "Giới thiệu về S3",
 	"tags": [],
 	"description": "",
 	"content": "Giới thiệu về Amazon S3 Amazon Simple Storage Service (Amazon S3) là một dịch vụ lưu trữ dạng đối tượng cung cấp khả năng mở rộng theo yêu cầu sử dụng, đảm bảo tính khả dụng của dữ liệu, độ bảo mật, và hiệu năng ở mức cao nhất.\nS3 được xây dựng để đáp ứng yêu cầu của khách hàng thuộc mọi quy mô và ngành nghề, đều có thể dùng dịch vụ này để lưu trữ và bảo vệ bất kỳ lượng dữ liệu nào.\nS3 có thể được dùng cho nhiều trường hợp sử dụng như kho dữ liệu (data warehouse), trang web, ứng dụng di động, sao lưu và khôi phục, lưu trữ, ứng dụng doanh nghiệp, thiết bị IoT và phân tích dữ liệu lớn. Ngoài ra, Amazon S3 còn cung cấp các tính năng quản lý dễ sử dụng, giúp bạn có thể tổ chức dữ liệu và cấu hình các biện pháp kiểm soát truy cập để đáp ứng yêu cầu cụ thể của doanh nghiệp, tổ chức và yêu cầu về tuân thủ.\nAmazon S3 được thiết kế để đảm bảo độ bền 99,999999999% (11 9’s) và lưu trữ dữ liệu của hàng triệu ứng dụng cho các công ty trên toàn thế giới.\n"
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/3.2-cloudfront/3.2.1-create-distribution/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/3.2-cloudfront/3.2.1-create-distribution/",
 	"title": "Tạo CloudFront Distribution",
 	"tags": [],
 	"description": "",
 	"content": "Tạo CloudFront Distribution và cấu hình _Distribution Tạo CloudFront Distribution Truy cập vào AWS Console Tìm CloudFront trên giao diện hoặc thanh tìm kiếm Chọn CloudFront Trong giao diện CloudFront, chọn Create distribution Trong giao diện Create distribution Distribution name: nhập todo-web-frontend-ws Sau đó chọn Next Ở bước này, chọn Other Lướt xuống phần Origin Nhập Custom origin: cần nhập đường dẫn đến S3 website hosting của bạn và bỏ tiền tố http:// Hãy sử dụng setting khuyến nghị Sau đó chọn Next Ở bước tiếp theo, bạn có thể chọn giữa Enable security protections(tốn phí) hoặc Do not enable security protections (miễn phí). Sau đó chọn Next Sau đó chọn Create distribution để tạo _distribution Sau khi tạo distribution, bạn cần đợi từ 5-20 phút đợi Amazon CloudFront deploy Sau khi deploy xong, bạn xem được thời gian deploy và đường dẫn mới đến giao diện của bạn "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/3.1-interview-s3/3.1.1-create-bucket/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/3.1-interview-s3/3.1.1-create-bucket/",
 	"title": "Tạo S3 bucket",
 	"tags": [],
 	"description": "",
 	"content": "Tạo bucket Tạo S3 bucket Truy cập AWS Management Console. Tìm S3 trên giao diện hoặc thanh tìm kiếm Chọn S3 Trong giao diện S3, chọn create bucket Trong giao diện Create bucket Bucket name: nhập todo-web-frontend-ws Lưu ý: Vì Bucket name là duy nhất trên mức độ toàn cầu, nếu sử dụng tên giống như trên sẽ xuất hiện thông báo: “Bucket with the same name already exists”. Do đó, cần thêm vài số phía sau để Bucket name của bạn phù hợp với policy. Trong phần Block Public Access settings for this bucket chúng ta tắt nó đi và tích vào ô I acknowledge that the current settings might result in this bucket and the objects within becoming public. Giữ nguyên các phần còn lại và chọn creater bucket Hoàn thành việc tạo S3 bucket để lưu trữ source code. "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/",
 	"title": "Workshop: Xây dựng Ứng dụng To-Do List Serverless trên AWS",
 	"tags": [],
 	"description": "",
 	"content": "Xây dựng Ứng dụng To-Do List Serverless trên AWS Tổng quan Workshop này hướng dẫn bạn xây dựng một ứng dụng web To-Do List hoàn chỉnh, triển khai theo kiểu serverless sử dụng các dịch vụ của AWS như Lambda, API Gateway, DynamoDB, S3, CloudFront và CloudFormation.\nNội dung Giới thiệu Các bước chuẩn bị Tạo kết nối đến máy chủ EC2 Quản lý session logs Dọn dẹp tài nguyên "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/2-prerequiste/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/2-prerequiste/",
 	"title": "Các bước chuẩn bị",
 	"tags": [],
 	"description": "",
 	"content": "1. Yêu cầu hệ thống Python 3.10 hoặc 3.11 Node.js \u0026gt;= 16 AWS CLI AWS Account với quyền tạo dịch vụ Lambda, API Gateway, DynamoDB, S3 Công cụ thiết kế sơ đồ (gợi ý: draw.io, Lucidchart) IDE: Visual Studio Code (hoặc editor bạn thích) 2. Cài đặt công cụ cần thiết Cài AWS CLI macOS brew install awscli sudo apt install awscli Windows Tải từ AWS CLI Cấu hình AWS CLI\naws configure Nhập: Access key, secret key Region: ap-southeast-1 Format: json Cài Node.js \u0026amp; npm macOS\nbrew install node Ubuntu\nsudo apt install nodejs npm Cài Serverless Framework\nnpm install -g serverless Tạo virtual environment Python\npython -m venv .venv source .venv/bin/activate # macOS/Linux .venv\\Scripts\\activate # Windows 3. Tạo cấu trúc dự án ban đầu mkdir todo-serverless cd todo-serverless sls create --template aws-python --path . 4. Cài đặt thư viện Pythonfastapi mangum\nboto3\npydantic\npytz\nCài đặt:\npip install -r requirements.txt "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/3.2-cloudfront/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/3.2-cloudfront/",
 	"title": "Phân phối giao diện qua CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "Giới thiệu về Amazon CloudFront Amazon CloudFront là một Content Delivery Network (CDN) do AWS cung cấp, được tối ưu cho hiệu suất và bảo mật.\nPhân phối nội dung thông qua hàng trăm Edge Locations toàn cầu. Giảm độ trễ và tăng tốc độ truyền tải bằng cách phục vụ nội dung từ vị trí gần người dùng cuối. Hỗ trợ nội dung\nNội dung tĩnh: HTML, CSS, JS, hình ảnh, video. Nội dung động: sử dụng caching có điều kiện và hỗ trợ: HTTP/2 TLS 1.3 WebSocket Tích hợp với các dịch vụ AWS\nAmazon S3 Elastic Load Balancing Amazon EC2 AWS Lambda@Edge Xử lý logic phía edge như: Xác thực người dùng Chuyển hướng URL Tùy biến response theo điều kiện Tính năng bảo mật\nGeo-restriction và Signed URLs/Cookies để kiểm soát truy cập. Tích hợp với AWS WAF để lọc traffic độc hại. Bảo vệ DDoS với AWS Shield Standard. Khả năng mở rộng và tùy chỉnh\nHỗ trợ header tùy biến. Tự động scale theo lưu lượng truy cập. Phù hợp cho ứng dụng có yêu cầu cao về: Hiệu năng Độ sẵn sàng Bảo mật "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/3.1-interview-s3/3.1.2-load-data/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/3.1-interview-s3/3.1.2-load-data/",
 	"title": "Tải dữ liệu và cấu hình ",
 	"tags": [],
 	"description": "",
 	"content": "Tải dữ liệu Hiện tại chúng ta chưa có object nào Chúng ta cần ta cần tải source giao diện lên S3 Vào VS Code, mở source giao diện, mở terminal và chạy lệnh aws s3 sync build/ s3://todo-web-frontend-ws --delete Lưu ý: hãy sửa lại đường dẫn tùy theo đường vị trí dẫn đến folder giao diện của bạn Sau khi chạy, soucre của bạn sẽ được tải lên S3 Cấu hình Chọn permission trong bucket, lướt xuống phần bucket policy chọn edit. Sau đó cấu hình cho S3 {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Sid\u0026#34;: \u0026#34;AllowPublicRead\u0026#34;,\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Action\u0026#34;: [\u0026#34;s3:GetObject\u0026#34;],\r\u0026#34;Resource\u0026#34;: [\u0026#34;arn:aws:s3:::todo-web-frontend-ws/*\u0026#34;]\r}\r]\r} Sau đó chọn save changes Tiếp theo, bạn chọn vào Properties, lướt xuống phần Static website hosting chọn edit Chọn enable Index document nhập index.html Error document nhập index.html Sau đó nhấn Save change Trong phần Static website hosting có phần Bucket website endpoint, bạn sẽ nhận được đường dẫn đến giao diện tĩnh của bạn Bạn có thể truy cập đường dẫn đến giao diện tĩnh của bạn trên S3 "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/2-prerequiste/2.2-prepare-for-build/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/2-prerequiste/2.2-prepare-for-build/",
 	"title": "Xây dựng và triển khai giao diện người dùng",
 	"tags": [],
 	"description": "",
 	"content": "Sau khi hoàn tất việc xây dựng backend serverless, bước tiếp theo là xây dựng và triển khai giao diện người dùng với React. Giao diện sẽ được kết nối với API Gateway sử dụng x-api-key để thực hiện các thao tác CRUD với Lambda + DynamoDB.\nCác bước chuẩn bị 🖥️ Kiến trúc giao diện Giao diện người dùng (frontend) sẽ là một ứng dụng React đơn trang (SPA), được build tĩnh và lưu trữ trên S3, phân phối qua CloudFront, và kết nối với backend thông qua API Gateway.\n🧰 Công cụ và tài nguyên cần chuẩn bị 1. Công cụ phát triển Node.js \u0026gt;= 18 npm hoặc yarn React + React DOM Code Editor (VS Code) 2. Tài nguyên AWS cần thiết S3 bucket (hosting static website) CloudFront Distribution API Gateway endpoint (đã có từ backend) API Key bảo mật endpoint 📁 Tạo giao diện với React 1. Tạo project npx create-react-app todo-frontend cd todo-frontend 2. Cấu trúc thư viện todo-frontend/\n├── public/\n├── src/\n│ ├── components/\n│ │ ├── Header.js\n│ │ ├── TaskForm.js\n│ │ ├── TaskList.js\n│ │ └── EditModal.js\n│ ├── service/API.js\n│ ├── assets/style.css\n│ ├── App.js\n│ └── index.js\n3. Kết nối với API Gateway Sử dụng đường dẫn và API key bạn có được từ server để sử dụng const API_URL = \u0026#34;https://your-api-id.execute-api.ap-southeast-1.amazonaws.com/dev\u0026#34;; const API_KEY = \u0026#34;your-api-key\u0026#34;; const headers = { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#39;x-api-key\u0026#39;: API_KEY }; export const fetchTasks = async () =\u0026gt; { const res = await fetch(`${API_URL}/todos`, { headers }); return res.json(); }; // POST, PUT, DELETE tương tự 4. Build giao diện Sau khi xây dựng xong giao diện npm run build Sau khi chạy lệnh, source giao diện của bạn sẽ đóng gói lại thành file build, bạn sẽ sử dụng file này cho bước tiếp theo 🔗 Tài liệu tham khảo Bạn có thể tham khảo thêm tại Git (https://github.com/TriNM0952/Workshop.git) "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/3-s3/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/3-s3/",
 	"title": "Triển khai giao diện tĩnh lên S3 và phân phối giao diện qua CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "Trong bước này, chúng ta sẽ thực hiện triển khai giao diện tĩnh lên S3 và phân phối giao diện qua CloudFront.\nNội dung 3.1. Triển khai giao diện tĩnh lên S3 3.2. Phân phối giao diện qua CloudFront\n"
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/4-interview-cloudformation/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/4-interview-cloudformation/",
 	"title": "Giới Thiệu Về CloudFormation",
 	"tags": [],
 	"description": "",
 	"content": "Amazon CloudWatch là dịch vụ giám sát tập trung của AWS, cung cấp khả năng thu thập log, số liệu (metrics) và tạo cảnh báo (alarms) cho toàn bộ hạ tầng.\nTrong hệ thống của bạn, CloudWatch có thể được sử dụng để:\nGhi lại log của Lambda function thông qua console.log() Theo dõi số lượng request, lỗi 4xx/5xx của API Gateway Giám sát lượng truy cập đến CloudFront và S3 Bạn có thể:\nTruy cập CloudWatch Logs để kiểm tra log theo thời gian thực từ Lambda Tạo Alarm để gửi cảnh báo qua email (SNS) nếu có lỗi tăng bất thường Kết hợp CloudWatch Dashboard để trực quan hóa toàn bộ hệ thống "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/5-cleanup/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/5-cleanup/",
 	"title": "Dọn dẹp tài nguyên  ",
 	"tags": [],
 	"description": "",
 	"content": "Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng ta đã tạo trong bài thực hành này.\nDọn dẹp tài nguyên AWS với CloudFormation, CLI và Console 1. Xóa Stack CloudFormation Nếu bạn đã tạo tài nguyên qua CloudFormation, hãy xóa stack để tự động dọn dẹp:\nDùng AWS CLI: aws cloudformation delete-stack --stack-name \u0026lt;tên-stack-của-bạn\u0026gt; Ví dụ:\naws cloudformation delete-stack --stack-name todo-app-stack Qua giao diện AWS Console: Vào dịch vụ CloudFormation. Chọn Stack của bạn (ví dụ: todo-app-stack). Nhấn Delete. ➡️ Việc này sẽ tự động xóa: S3, Lambda, API Gateway, DynamoDB, IAM roles (nếu được định nghĩa trong template).\n2. Xóa S3 Bucket (nếu không được xóa bởi stack) Nếu bucket được tạo thủ công hoặc stack không xóa được bucket vì còn file:\naws s3 rm s3://\u0026lt;bucket-name\u0026gt; --recursive aws s3api delete-bucket --bucket \u0026lt;bucket-name\u0026gt; 3. Xóa CloudFront Distribution (nếu tạo ngoài stack) Nếu bạn tạo CloudFront Distribution thủ công:\nVào AWS Console → CloudFront → Chọn Distribution → Disable. Sau khi disable, chọn Delete. 4. Xóa DynamoDB Table (nếu tạo ngoài stack) aws dynamodb delete-table --table-name \u0026lt;tên-bảng\u0026gt; Ví dụ:\naws dynamodb delete-table --table-name Tasks 5. Xóa Lambda Functions (nếu tạo ngoài stack) aws lambda delete-function --function-name \u0026lt;tên-hàm\u0026gt; Ví dụ:\naws lambda delete-function --function-name yourFunctionName 6. Xóa API Gateway (nếu tạo ngoài stack) aws apigateway delete-rest-api --rest-api-id \u0026lt;api-id\u0026gt; 7. Xóa IAM Roles/Policies (nếu tạo thủ công) Vào AWS Console → IAM → Xóa các role/policy không còn dùng. 🧼 Kiểm tra lại Vào Billing Dashboard để kiểm tra xem có dịch vụ nào còn tính phí. Kiểm tra các vùng (Region) khác nếu bạn đã tạo tài nguyên ở nhiều khu vực. ✅ Tổng kết Việc dọn dẹp tài nguyên giúp:\nTránh bị tính phí không mong muốn. Giữ tài khoản AWS sạch sẽ và an toàn. Tuân thủ quy trình phát triển theo vòng đời dự án. "
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/categories/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://localhost:1313/workshop_todo_app/vi/tags/",
+	"uri": "https://TriNM0952.github.io/workshop_todo_app/vi/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
